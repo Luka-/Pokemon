@@ -1,5 +1,4 @@
 #include <iostream>
-#include <sqlite3.h>
 #include <algorithm>
 #include "deck.h"
 using namespace std;

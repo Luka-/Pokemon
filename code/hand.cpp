@@ -236,7 +236,7 @@ void Hand::shuffleHand (Deck* deck) {
 	}
 }
 
-int Hand::state() { //template for now
+int Hand::state() { //template 
 	return 1;
 }
 
