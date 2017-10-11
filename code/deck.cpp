@@ -33,8 +33,10 @@ void Deck::draw(Hand* hand) {
 	}
 }
 
-bool Deck::remove(int card) { // removes card if it's in the deck, shuffles it, and returns true; 
-							  // otherwise, does nothing and returns false
+// removes card if it's in the deck, shuffles the deck, and returns true;
+// otherwise, does nothing and returns false
+bool Deck::remove(int card) {  
+							  
 	if (number[card] == 0) return false;
 	number[card]--;
 	for (int i = 0; i < size; i++) {
@@ -51,6 +53,6 @@ bool Deck::remove(int card) { // removes card if it's in the deck, shuffles it, 
 	return true;
 }
 
-int Deck::state() { //template for now
+int Deck::state() { //template
 	return 1;
 }

@@ -20,10 +20,10 @@ int Field::empty_slot() {
 		if (bench[i] == NULL) return i;
 	}
 }
-
-bool Field::place(int id, int slot) { // places given ID card on a slot
-									  // if successfull, returns 1, if not, does nothing and returns 0
-	
+// places given ID card on a slot
+// if successful, returns 1, if not, does nothing and returns 0
+bool Field::place(int id, int slot) { 
+									  
 	if (slot < 0 || slot > 5) return false;
 
 	if (id == 1) {
@@ -99,7 +99,7 @@ bool Field::promote(int card) {
 	return true;
 }
 
-bool Field::swap(int card) { //swap active with this
+bool Field::swap(int card) { //swap active with this card
 	if (bench[card] == NULL) return false;
 	if (active == NULL) return false;
 	Pokemon* temp = active;

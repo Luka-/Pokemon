@@ -35,7 +35,37 @@ bool Hand::shuffleIn(int card, Deck* deck) {
 	return true;
 }
 
-bool Hand::play(int card, Field* field, Deck* deck, int arg1, int arg2) { // most important function, denotes the play
+/*---------------------------------------------------------------------------
+				THE FOLLOWING FUNCTION DENOTES A PLAY
+
+arg1 and arg2 are optional arguments, which may or may not be used,
+depending on the card that is being played.
+
+card denotes the card that is being played. It is an integer between 0 and 12.
+
+13 is a special action, retreat. It doesn't require a card,
+and can be performed once a turn.
+
+Here is the name of each card. For more info, read Pokemon.pdf:
+
+0  ----> Evosoda
+1  ----> Tympole
+2  ----> Palpitoad
+3  ----> Seismitoad
+4  ----> Meloetta EX
+5  ----> Muscle Band
+6  ----> Cheren
+7  ----> Professor Juniper
+8  ----> Heavy Ball
+9  ----> Level Ball
+10 ----> Pokemon Communication
+11 ----> Double Colorless Energy
+12 ----> Water Energy
+
+
+-----------------------------------------------------------------------------*/
+
+bool Hand::play(int card, Field* field, Deck* deck, int arg1, int arg2) { 
 	if (number[card] == 0) return false;
 	if (number[card] < 1) return false;
 
@@ -221,8 +251,8 @@ bool Hand::play(int card, Field* field, Deck* deck, int arg1, int arg2) { // mos
 	return false;
 	
 }
-
-void Hand::take_prize(Field* field) { // simply takes the next prize
+// simply takes the next prize
+void Hand::take_prize(Field* field) { 
 	number[field->prize[field->prize_counter]]++;
 	field->prize_counter++;
 	size++;

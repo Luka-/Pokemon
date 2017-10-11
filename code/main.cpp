@@ -75,6 +75,7 @@ void find_available_moves(Deck* deck, Hand* hand, Field* field) {
 	} 
 }
 
+// simulates random Monte Carlo games
 void simulate_game(Deck* deck, Hand* hand, Field* field, int move1, int move2, int move3, int index) {
 	int turn = 0;
 	Deck tempDeck = Deck();
@@ -142,7 +143,7 @@ void simulate_game(Deck* deck, Hand* hand, Field* field, int move1, int move2, i
 	for (int i = 0; i < 5; i++) delete tempField.bench[i];
 }
 
-
+// this function diplays the game state on the terminal
 void display(Deck* deck, Hand* hand, Field* field) {
 	cout << "Your playing field is:" << endl;
 	if (field->active != NULL) cout << field->active->id << endl;
@@ -291,9 +292,7 @@ void play_a_game() { //this plays a game where I control what I draw, i.e. for P
 		else if (!hand.play(a,&field,&deck,b,c)) cout << "Error, you can't do that move..." << endl;
 	}
 
-
-
-	//just delete stuff, don't want no memory leaks
+	//just delete stuff, no memory leaks...
 
 	delete field.active;
  	for (int i = 0; i < 5; i++) delete field.bench[i];
@@ -389,7 +388,7 @@ int main () {
 	deck.shuffle();
 	field.place(1,5);
 
-	play_a_random_game();
+	play_a_game();
 	
 
 	return 0;
